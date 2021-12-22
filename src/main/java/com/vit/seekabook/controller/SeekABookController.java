@@ -88,4 +88,23 @@ public class SeekABookController {
         }
         return dataResponse;
     }
+
+    /**
+     * Signing up a new user
+     *
+     * @param user
+     * @return {@link String}
+     */
+    @PostMapping(value = "/signup", produces = "application/json")
+    public SeekABookResponse<String> signUpUser(@RequestBody User user) {
+        log.info("Signing up new user");
+        SeekABookResponse<String> dataResponse;
+        try {
+            seekABookService.signUpUser(user);
+            dataResponse = new SeekABookResponse<>("Sign up of user is successful");
+        } catch (Exception ex) {
+            dataResponse = new SeekABookResponse<>(SeekABookResponse.FAILURE, ex.getMessage(), null);
+        }
+        return dataResponse;
+    }
 }

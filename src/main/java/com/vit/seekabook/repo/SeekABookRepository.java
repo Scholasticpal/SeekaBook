@@ -165,4 +165,21 @@ public class SeekABookRepository {
             throw new SeekABookException(ex);
         }
     }
+
+    public void addUser(User user) throws SeekABookException {
+        Map<String, String> params = new HashMap<>();
+        try {
+            params.put("email", user.getEmail());
+            params.put("first_name", user.getFirstName());
+            params.put("last_name", user.getLastName());
+            params.put("address", user.getAddress());
+            params.put("city", user.getCity());
+            params.put("country", user.getCountry());
+            params.put("post_code", user.getPostalCode());
+            namedParameterJdbcTemplate.update("INSERT INTO user_detail (email, user_type, first_name, last_name, address, city, country, post_code) \n" +
+                    "VALUES (:email, 'User', :first_name, :last_name, :address, :city, :country, :post_code);", params);
+        } catch (Exception ex) {
+            throw new SeekABookException(ex);
+        }
+    }
 }

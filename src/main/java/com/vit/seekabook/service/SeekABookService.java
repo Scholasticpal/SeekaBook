@@ -68,4 +68,17 @@ public class SeekABookService {
     public List<BookAd> searchBookByTitle(String title) throws SeekABookException {
         return seekABookRepository.getBookByTitle(title);
     }
+
+    /**
+     * Sign up new user
+     *
+     * @param user
+     * @throws SeekABookException
+     */
+    public void signUpUser(User user) throws SeekABookException {
+        if (user.getEmail() == null) {
+            throw new SeekABookException("User email can't be empty");
+        }
+        seekABookRepository.addUser(user);
+    }
 }
