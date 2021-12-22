@@ -70,4 +70,22 @@ public class SeekABookController {
         }
         return dataResponse;
     }
+
+    /**
+     * Search book by title
+     *
+     * @param
+     * @return {@link BookAd} bookAd
+     */
+    @GetMapping(value = "/book-ad", produces = "application/json")
+    public SeekABookListResponse<BookAd> getBookAdByTitle(@RequestParam String bookTitle) {
+        log.info("Search book by title");
+        SeekABookListResponse<BookAd> dataResponse;
+        try {
+            dataResponse = new SeekABookListResponse<>(seekABookService.searchBookByTitle(bookTitle.strip()));
+        } catch (Exception ex) {
+            dataResponse = new SeekABookListResponse<>(SeekABookListResponse.FAILURE, ex.getMessage(), null);
+        }
+        return dataResponse;
+    }
 }

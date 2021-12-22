@@ -57,4 +57,15 @@ public class SeekABookService {
                 filter(bookAd -> bookAd.isApprovedByAdmin()).
                 collect(Collectors.toList());
     }
+
+    /**
+     * Search book by title
+     *
+     * @param title
+     * @return List of {@link BookAd}
+     * @throws SeekABookException
+     */
+    public List<BookAd> searchBookByTitle(String title) throws SeekABookException {
+        return seekABookRepository.getBookByTitle(title);
+    }
 }
