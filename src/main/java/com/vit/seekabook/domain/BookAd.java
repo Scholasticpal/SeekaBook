@@ -16,4 +16,5 @@ public class BookAd {
     private String price;
     private String bookDescription;
     private String bookReview;
+    private boolean approvedByAdmin;
 }

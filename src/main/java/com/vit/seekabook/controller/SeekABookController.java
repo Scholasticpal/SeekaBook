@@ -1,7 +1,9 @@
 package com.vit.seekabook.controller;
 
+import com.vit.seekabook.domain.BookAd;
 import com.vit.seekabook.domain.User;
 import com.vit.seekabook.dto.BookAdPostDto;
+import com.vit.seekabook.dto.SeekABookListResponse;
 import com.vit.seekabook.dto.SeekABookResponse;
 import com.vit.seekabook.service.SeekABookService;
 import lombok.extern.slf4j.Slf4j;
@@ -48,6 +50,23 @@ public class SeekABookController {
             dataResponse = new SeekABookResponse<>("Book ad posted successfully");
         } catch (Exception ex) {
             dataResponse = new SeekABookResponse<>(SeekABookResponse.FAILURE, ex.getMessage(), null);
+        }
+        return dataResponse;
+    }
+
+    /**
+     * Get all posted book ads
+     *
+     * @return {@link BookAd} bookAd
+     */
+    @GetMapping(value = "/book-ads", produces = "application/json")
+    public SeekABookListResponse<BookAd> getAllBookAds() {
+        log.info("Get all books ad");
+        SeekABookListResponse<BookAd> dataResponse;
+        try {
+            dataResponse = new SeekABookListResponse<>(seekABookService.getAllBookAds());
+        } catch (Exception ex) {
+            dataResponse = new SeekABookListResponse<>(SeekABookListResponse.FAILURE, ex.getMessage(), null);
         }
         return dataResponse;
     }

@@ -1,5 +1,6 @@
 package com.vit.seekabook.service;
 
+import com.vit.seekabook.domain.BookAd;
 import com.vit.seekabook.domain.User;
 import com.vit.seekabook.dto.BookAdPostDto;
 import com.vit.seekabook.exception.SeekABookException;
@@ -7,9 +8,9 @@ import com.vit.seekabook.repo.SeekABookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SeekABookService {
@@ -39,9 +40,21 @@ public class SeekABookService {
      * @throws SeekABookException
      */
     public void saveBookAd(BookAdPostDto bookAdPostDto) throws SeekABookException {
-        if(bookAdPostDto.getSellerEmail() == null || bookAdPostDto.getBookTitle() == null) {
+        if (bookAdPostDto.getSellerEmail() == null || bookAdPostDto.getBookTitle() == null) {
             throw new SeekABookException("Seller email or book title can't be empty");
         }
         seekABookRepository.saveBookAd(bookAdPostDto);
+    }
+
+    /**
+     * Get all book ads
+     *
+     * @return List of {@link BookAd}
+     * @throws SeekABookException
+     */
+    public List<BookAd> getAllBookAds() throws SeekABookException {
+        return seekABookRepository.getAllBooks().stream().
+                filter(bookAd -> bookAd.isApprovedByAdmin()).
+                collect(Collectors.toList());
     }
 }

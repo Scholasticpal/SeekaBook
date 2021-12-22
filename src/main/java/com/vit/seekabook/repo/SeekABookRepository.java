@@ -1,5 +1,6 @@
 package com.vit.seekabook.repo;
 
+import com.vit.seekabook.domain.BookAd;
 import com.vit.seekabook.domain.User;
 import com.vit.seekabook.domain.UserType;
 import com.vit.seekabook.dto.BookAdPostDto;
@@ -59,5 +60,48 @@ public class SeekABookRepository {
         namedParameterJdbcTemplate.update("INSERT INTO book_ads (seller_email, " +
                 "book_title, price, book_description, book_review) \n" +
                 "VALUES (:seller_email, :book_title, :price, :book_description, :book_review);", params);
+    }
+
+    public List<BookAd> getAllBooks() {
+        return namedParameterJdbcTemplate.query("SELECT b.ad_id,\n" +
+                "    b.seller_email,\n" +
+                "    b.book_title,\n" +
+                "    b.price,\n" +
+                "    b.book_description,\n" +
+                "    b.book_review,\n" +
+                "    b.approved_by_admin,\n" +
+                "    u.email,\n" +
+                "    u.user_type,\n" +
+                "    u.first_name,\n" +
+                "    u.last_name,\n" +
+                "    u.address,\n" +
+                "    u.city,\n" +
+                "    u.country,\n" +
+                "    u.post_code\n" +
+                "FROM book_ads b, user_detail u\n" +
+                "WHERE b.seller_email = u.email;\n", new RowMapper<>() {
+            @Override
+            public BookAd mapRow(ResultSet rs, int rowNum) throws SQLException {
+                BookAd b = new BookAd();
+                b.setAdID(rs.getLong("ad_id"));
+                b.setBookTitle(rs.getString("book_title"));
+                b.setPrice(rs.getString("price"));
+                b.setBookDescription(rs.getString("book_description"));
+                b.setBookReview(rs.getString("book_review"));
+                String approvedByAdmin = rs.getString("approved_by_admin");
+                b.setApprovedByAdmin("Yes".equalsIgnoreCase(approvedByAdmin) ? true : false);
+                User u = new User();
+                u.setEmail(rs.getString("email"));
+                u.setUserType(UserType.valueOf(rs.getString("user_type")).name());
+                u.setFirstName(rs.getString("first_name"));
+                u.setLastName(rs.getString("last_name"));
+                u.setAddress(rs.getString("address"));
+                u.setCity(rs.getString("city"));
+                u.setCountry(rs.getString("country"));
+                u.setPostalCode(rs.getString("post_code"));
+                b.setSeller(u);
+                return b;
+            }
+        });
     }
 }
