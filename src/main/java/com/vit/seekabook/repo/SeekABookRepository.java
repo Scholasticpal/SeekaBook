@@ -2,6 +2,7 @@ package com.vit.seekabook.repo;
 
 import com.vit.seekabook.domain.User;
 import com.vit.seekabook.domain.UserType;
+import com.vit.seekabook.dto.BookAdPostDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -46,5 +47,17 @@ public class SeekABookRepository {
                 return u;
             }
         });
+    }
+
+    public void saveBookAd(BookAdPostDto bookAdPostDto) {
+        Map<String, String> params = new HashMap<>();
+        params.put("seller_email", bookAdPostDto.getSellerEmail());
+        params.put("book_title", bookAdPostDto.getBookTitle());
+        params.put("price", bookAdPostDto.getPrice());
+        params.put("book_description", bookAdPostDto.getBookDescription());
+        params.put("book_review", bookAdPostDto.getBookReview());
+        namedParameterJdbcTemplate.update("INSERT INTO book_ads (seller_email, " +
+                "book_title, price, book_description, book_review) \n" +
+                "VALUES (:seller_email, :book_title, :price, :book_description, :book_review);", params);
     }
 }
