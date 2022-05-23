@@ -1,0 +1,161 @@
+/* section1 */
+
+
+.section1 {
+  height: 50rem;
+}
+
+.index{
+    background-color: rgb(166, 166, 189);
+    height: 65px;
+}
+
+.account{
+    position: relative;
+    text-align: right;
+    padding-top: 15px;
+}
+
+
+.fa-user-circle{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* section 3 */
+
+/* buttons */
+
+.btn-primary {
+    display: flex;
+    position: relative;
+    text-align: right;
+
+}
+
+.sign {
+    float: right;
+    margin-right: 15px;
+    margin-top: 10px;
+
+}
+/* search bar  */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 150%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 45px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 60px;
+  height: 45px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.post{
+    margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 47%;
+}
+
+/* baground image  */
+
+
+.section1 {
+  background-image: url('https://www.payloadz.com/images/img01.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: ;
+  
+  
+}
+
+
+#footer{
+  text-align: center;
+  
+}
+
+.social-icon{
+  margin-top: 50px;
+  margin-right: 10px;
+}
+
+
+/* section 4, Carousel */
+.scroll{
+  text-align: center;
+}
+
+.stay{
+  margin-top: 100px;
+}
+
+.subheading{
+  margin-bottom: 30px;
+}
+
+.image{
+  height: 200px;
+  
+  margin-left: 45.5%;
+  
+}
+
+.sub_heading{
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  
+}
+
+.vertical {
+  border-left: 2px solid black;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+}
+
+.tablee{
+  text-align: center;
+  padding-top: 25px;
+}

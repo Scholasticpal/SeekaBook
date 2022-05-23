@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>contact us</title>
+    <link rel="stylesheet" href="styles-contact-us.css">
+  </head>
+  <body>
+    <div class="wrapper">
+  <div class="title">
+    <h1>We'd love to hear from you!</h1>
+  </div>
+
+    <form id="form">
+
+
+  <div class="contact-form">
+    <div class="input-fields">
+      <input type="text" id="name" class="input" placeholder="Name">
+      <input type="text" id="email" class="input" placeholder="Email Address">
+      <input type="text" id="phone" class="input" placeholder="Phone">
+      <input type="text" id="subject" class="input" placeholder="Subject">
+    </div>
+    <div class="msg">
+      <textarea id="msg" placeholder="Message"></textarea>
+      <div class="button"><button>send</button>
+
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
+  </body>
+  <script>
+    var form = document.getElementById('form')
+
+    form.addEventListener('send',function(event){
+      event.preventDefault()//prevents form from autosubmitting
+
+      var name = document.getElementById('name').value
+
+
+      var email = document.getElementById('email').value
+
+
+      var phone = document.getElementById('phone').value
+
+
+      var subject = document.getElementById('subject').value
+
+
+      var msg = document.getElementById('msg').value
+
+    })
+
+
+  </script>
+</html>
