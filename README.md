@@ -33,20 +33,20 @@ Existing website usually ask for unnecessary information
 Orders from existing websites will always include shipping costs.
 These usually contain pop-ups.
 
-# Software Requirements
-# 1. Explore Books
+## Software Requirements
+### 1. Explore Books
  This button will display all books present in our database so that user can have a look on all of them.
  Information like Book name, description, price, and way to contact seller will also be displayed.
-# 2. Search Bar
+### 2. Search Bar
   Search option will allow user to find specific book that they need.
-# 3. Post Ad
+### 3. Post Ad
   This feature will allow buyers to display their book ads so that prospective buyers can reach them out.
-# 4. Search Filter
+### 4. Search Filter
   Login interface will allow users and admin to login into the system by entering user id and password before they are allowed to enter the system.
-# 5. Buyer
+### 5. Buyer
 Buyer may use the Search Filter to sort or filter the search results by University and price.
 
-# Hardware Requirements
+## Hardware Requirements
 The following table lists the minimum and recommended hardware requirements for the web application.
 
 
