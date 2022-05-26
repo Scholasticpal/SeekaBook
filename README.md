@@ -48,7 +48,7 @@ Buyer may use the Search Filter to sort or filter the search results by Universi
 
 ## Hardware Requirements
 The following table lists the minimum and recommended hardware requirements for the web application.
-<img src = "images_README/hardware_Rquirements.PNG" alt = "Hardware Requirements" width = "500" />
+<img src = "images_README/hardware_Requirements.PNG" alt = "Hardware Requirements" width = "500" />
 
 
 
